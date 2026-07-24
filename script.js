@@ -8,13 +8,13 @@ function go(n) {
   scene = Math.max(0, Math.min(total, n));
   q(`[data-scene="${scene}"]`).classList.add('active');
   q('#progress').style.width = `${(scene / total) * 100}%`;
-  localStorage.setItem('mysterySceneNY', String(scene));
+  localStorage.setItem('mysterySceneNYv4', String(scene));
   window.scrollTo(0, 0);
 }
 
 function next() { go(scene + 1); }
-function resetStory() { localStorage.removeItem('mysterySceneNY'); go(0); }
-function triggerGlitch() { go(4); }
+function resetStory() { localStorage.removeItem('mysterySceneNYv4'); go(0); }
+function triggerGlitch() { go(4); return false; }
 function openClue(el) { el.classList.add('open'); el.querySelector('p').classList.remove('hidden'); }
 
 function checkCountry() {
@@ -75,5 +75,5 @@ function celebrate() {
   }
 }
 
-const saved = Number(localStorage.getItem('mysterySceneNY'));
+const saved = Number(localStorage.getItem('mysterySceneNYv4'));
 if (Number.isInteger(saved) && saved > 0 && saved <= total) go(saved);
