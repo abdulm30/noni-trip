@@ -1,184 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#090807" />
-  <title>A Private Invitation</title>
-  <link href="style.css?v=4" rel="stylesheet" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Mission 081426</title>
+<style>
+:root{--bg:#050505;--panel:#141311;--panel2:#1f1d19;--gold:#d9b76a;--cream:#f6efe2;--muted:#b9ad9b;--red:#b53939;--green:#7de3ad;--blue:#1a2234;}
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;background:radial-gradient(circle at 20% 10%,#262018 0,#080808 38%,#020202 100%);color:var(--cream);font-family:Inter,system-ui,Segoe UI,sans-serif;overflow-x:hidden} body:before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:100% 4px;pointer-events:none;opacity:.35;z-index:30}.wrap{max-width:1180px;margin:0 auto;padding:28px}.scene{display:none;min-height:100vh;align-items:center;justify-content:center;padding:38px 0;animation:fade .55s ease}.scene.active{display:flex}.card{width:100%;border:1px solid rgba(217,183,106,.35);border-radius:32px;background:linear-gradient(135deg,rgba(28,26,23,.94),rgba(9,9,9,.96));box-shadow:0 25px 90px rgba(0,0,0,.65);padding:42px;position:relative;overflow:hidden}.card:after{content:"";position:absolute;inset:-40%;background:radial-gradient(circle,rgba(217,183,106,.12),transparent 36%);animation:pulse 7s infinite;pointer-events:none}.content{position:relative;z-index:1}.eyebrow{letter-spacing:.45em;color:var(--gold);font-weight:800;text-transform:uppercase;font-size:13px}.title{font-family:Georgia,serif;font-size:clamp(48px,8vw,116px);line-height:.9;margin:18px 0;color:var(--cream);text-shadow:0 0 25px rgba(217,183,106,.12)}.subtitle{font-size:clamp(18px,2.4vw,28px);color:var(--muted);line-height:1.5;max-width:850px}.btn{border:1px solid rgba(217,183,106,.7);background:linear-gradient(135deg,rgba(217,183,106,.25),rgba(255,255,255,.06));color:var(--cream);border-radius:999px;padding:16px 28px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin:10px 8px 0 0;transition:.2s;box-shadow:0 10px 30px rgba(0,0,0,.3)}.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(217,183,106,.15)}.btn.secondary{border-color:rgba(255,255,255,.18);color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:26px}.mini{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:22px}.mini h3{font-family:Georgia,serif;font-size:28px;margin:0 0 8px}.mini p{color:var(--muted);line-height:1.45}.input{width:100%;max-width:520px;padding:17px 20px;border-radius:18px;background:#090909;border:1px solid rgba(217,183,106,.35);color:var(--cream);font-size:22px;margin:16px 0}.progress{position:fixed;top:0;left:0;height:4px;background:var(--gold);width:0%;z-index:99;transition:.5s}.journal{position:fixed;right:18px;bottom:18px;z-index:50;background:rgba(10,10,10,.82);backdrop-filter:blur(10px);border:1px solid rgba(217,183,106,.4);border-radius:18px;padding:12px 16px;color:var(--gold);font-weight:900;box-shadow:0 10px 40px rgba(0,0,0,.45)}.stamp{display:inline-block;margin:4px;padding:6px 9px;border:1px solid rgba(217,183,106,.55);border-radius:999px;color:var(--cream);font-size:12px}.boarding{background:linear-gradient(135deg,#f8f1e6,#dac99d);color:#111;border-radius:28px;padding:30px;box-shadow:0 25px 60px rgba(0,0,0,.35);max-width:820px;position:relative;overflow:hidden}.boarding:before{content:"";position:absolute;top:0;bottom:0;right:220px;border-left:3px dashed rgba(0,0,0,.22)}.boarding .route{font-family:Georgia,serif;font-size:58px;font-weight:900}.qr{width:120px;height:120px;background:repeating-linear-gradient(45deg,#111 0 8px,#fff 8px 14px);border:8px solid white;border-radius:10px}.row{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}.ticket{border:1px solid rgba(217,183,106,.35);background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border-radius:24px;padding:24px;cursor:pointer;transition:.2s}.ticket:hover,.selected{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 14px 35px rgba(217,183,106,.12)}.safe{width:260px;height:260px;border-radius:50%;border:16px solid #3c3527;background:radial-gradient(circle,#17120b,#050505);display:flex;align-items:center;justify-content:center;margin:20px auto;color:var(--gold);font-size:46px;font-weight:900;box-shadow:inset 0 0 45px #000,0 0 55px rgba(217,183,106,.16)}.terminal{font-family:ui-monospace,Consolas,monospace;background:#020302;color:#8ff0b8;border:1px solid rgba(143,240,184,.25);padding:25px;border-radius:18px;line-height:1.8;box-shadow:0 0 40px rgba(52,255,145,.08)}.glitch{animation:glitch .12s infinite}.board{background:#050608;border-radius:22px;padding:18px;border:1px solid rgba(255,255,255,.1);font-family:ui-monospace,monospace}.flightrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;background:linear-gradient(180deg,#202329,#111317);border-radius:12px;margin:10px 0;padding:16px 22px;font-size:26px}.flash{color:var(--gold);text-shadow:0 0 18px var(--gold);animation:flash 1s infinite}.world{height:340px;border-radius:50%;aspect-ratio:1/1;margin:30px auto;background:radial-gradient(circle at 35% 30%,#2f5b88,#07111f 62%,#01040a);box-shadow:inset -35px -20px 60px rgba(0,0,0,.65),0 0 90px rgba(84,135,198,.25);position:relative;animation:spin 18s linear infinite}.world:before{content:"";position:absolute;inset:18%;border-radius:50%;background:linear-gradient(80deg,transparent 20%,rgba(217,183,106,.45) 22%,transparent 25%,transparent 60%,rgba(217,183,106,.35) 64%,transparent 67%)}.mapbtn{display:inline-block;padding:15px 22px;border:1px solid rgba(255,255,255,.16);border-radius:16px;margin:8px;cursor:pointer}.mapbtn:hover{border-color:var(--gold)}.seal{height:150px;border-radius:50%;background:radial-gradient(circle,#6d1111,#230505);border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:30px;color:var(--cream);cursor:pointer;box-shadow:0 0 35px rgba(217,183,106,.2)}.hero{min-height:320px;border-radius:28px;padding:30px;display:flex;align-items:end;background:linear-gradient(180deg,transparent,rgba(0,0,0,.85)),var(--img);background-size:cover;background-position:center;border:1px solid rgba(217,183,106,.25)}.rome{--img:radial-gradient(circle at 50% 35%,#8b6b3b,#1a0e08)}.florence{--img:radial-gradient(circle at 50% 35%,#9a5835,#130b08)}.venice{--img:radial-gradient(circle at 50% 35%,#315b70,#060b14)}.timeline{border-left:2px solid rgba(217,183,106,.45);margin:25px 0 0 12px}.stop{padding:0 0 22px 25px;position:relative}.stop:before{content:"";position:absolute;left:-8px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 16px var(--gold)}.stop b{font-size:20px}.stop span{display:block;color:var(--muted);margin-top:5px}.love{background:linear-gradient(135deg,rgba(90,18,18,.55),rgba(217,183,106,.08));border:1px solid rgba(217,183,106,.35);border-radius:24px;padding:28px;font-family:Georgia,serif;font-size:25px;line-height:1.5}.confetti{position:fixed;inset:0;pointer-events:none;z-index:80}.piece{position:absolute;width:8px;height:14px;background:var(--gold);animation:fall 2.8s linear forwards}.hidden{display:none!important}.shake{animation:shake .45s}.passport{background:#401313;border:2px solid var(--gold);border-radius:16px;padding:26px;max-width:420px;min-height:260px;margin:auto;text-align:center;box-shadow:inset 0 0 40px rgba(0,0,0,.6)}.passport h2{font-family:Georgia,serif;font-size:42px}.bigstamp{display:inline-block;border:3px solid var(--gold);border-radius:50%;padding:28px;margin:12px;color:var(--gold);transform:rotate(-8deg);font-weight:900}.drag{padding:16px;border-radius:16px;border:1px solid rgba(217,183,106,.35);background:rgba(255,255,255,.07);margin:8px;display:inline-block;cursor:grab}.slot{min-height:64px;border:1px dashed rgba(217,183,106,.45);border-radius:16px;padding:10px;margin:8px}.small{font-size:13px;color:var(--muted)}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}@keyframes pulse{50%{transform:scale(1.2);opacity:.5}}@keyframes glitch{50%{transform:translate(2px,-1px);filter:hue-rotate(20deg)}}@keyframes flash{50%{opacity:.25}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-4px)}}@keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
+@media(max-width:700px){.wrap{padding:14px}.card{padding:24px;border-radius:22px}.boarding:before{display:none}.boarding .route{font-size:40px}.flightrow{font-size:18px}.title{font-size:52px}.journal{position:static;margin:12px}.world{height:240px}.safe{width:190px;height:190px}}
+</style>
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="progress" id="progress"></div>
-  <div class="confetti" id="confetti"></div>
-  <button class="reset" onclick="resetStory()">Restart</button>
+<div class="progress" id="progress"></div><div class="journal" id="journal">Passport: <span id="stamps"></span></div><div class="confetti" id="confetti"></div>
+<main>
+<section class="scene active" data-scene="0"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Classified Mission 081426</div><h1 class="title">One Secret. One Adventure.</h1><p class="subtitle">A private travel file has been prepared. Clearance is required for Passenger Two.</p><button class="btn" onclick="next()">Begin Mission</button></div></div></div></section>
+<section class="scene" data-scene="1"><div class="wrap"><div class="card"><div class="content" style="text-align:center"><div class="eyebrow">Security Clearance Required</div><h1 class="title">Authenticate</h1><p class="subtitle" style="margin:auto">Press and hold the seal for access.</p><div class="safe" id="holdSafe">✦</div><p class="small">Hold until the seal completes.</p><button class="btn hidden" id="authBtn" onclick="stamp('CLEARED');next()">Access Granted</button></div></div></div></section>
+<section class="scene" data-scene="2"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Secure Reservation Portal</div><h1 class="title">Trip Confirmed</h1><div class="grid"><div class="mini"><h3>Passenger One</h3><p>Abdul Mushtaq</p></div><div class="mini"><h3>Passenger Two</h3><p>❤️ Clearance accepted</p></div><div class="mini"><h3>Status</h3><p style="color:var(--green)">Confirmed</p></div></div><button class="btn" onclick="next()">Continue to Reservation</button></div></div></div></section>
+<section class="scene" data-scene="3"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Puzzle 1</div><h1 class="title">Boarding Pass</h1><div class="boarding"><div class="row"><div><div class="small">PREMIUM CABIN</div><div class="route">ORD → JFK</div><p><b>October 16</b>   Gate B19   Status Confirmed</p><p>Confirmation letters hidden in passenger notes spell the city.</p></div><div class="qr"></div></div></div><input class="input" id="a1" placeholder="Enter hidden city code"/><br/><button class="btn" onclick="check('a1','NEWYORK')">Unlock Reservation</button></div></div></div></section>
+<section class="scene" data-scene="4"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Luxury Stay</div><h1 class="title">The Plaza</h1><p class="subtitle">Overlooking Central Park. A Manhattan classic. Suite file reserved for three nights.</p><div class="grid"><div class="mini"><h3>Concierge</h3><p>Private arrival note, evening plans, shopping nearby.</p></div><div class="mini"><h3>Location</h3><p>Central Park South, steps from Fifth Avenue.</p></div><div class="mini"><h3>Key</h3><p>Tap the only gold hotel key to continue.</p></div></div><div class="grid"><button class="ticket" onclick="wrong(this)">SoHo Loft</button><button class="ticket" onclick="stamp('HOTEL KEY');next()">Gold Plaza Key</button><button class="ticket" onclick="wrong(this)">Brooklyn Stay</button></div></div></div></div></section>
+<section class="scene" data-scene="5"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Puzzle 2</div><h1 class="title">Broadway Envelope</h1><p class="subtitle">Open the correct three premium theater envelopes.</p><div class="grid"><button class="ticket broad" data-ok="1" onclick="selectBroad(this)">Hamilton</button><button class="ticket broad" onclick="wrong(this)">Chicago</button><button class="ticket broad" data-ok="1" onclick="selectBroad(this)">Wicked</button><button class="ticket broad" data-ok="1" onclick="selectBroad(this)">The Lion King</button><button class="ticket broad" onclick="wrong(this)">Phantom</button></div><button class="btn" onclick="checkBroad()">Confirm Tickets</button></div></div></div></section>
+<section class="scene" data-scene="6"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Puzzle 3</div><h1 class="title">Packing Challenge</h1><p class="subtitle">Pack the essentials. Drag or tap items into the suitcase.</p><div id="items"><span class="drag" onclick="pack(this)">Evening Outfit</span><span class="drag" onclick="pack(this)">Camera</span><span class="drag" onclick="pack(this)">Sunglasses</span><span class="drag" onclick="pack(this)">Chargers</span><span class="drag" onclick="pack(this)">Dress Shoes</span></div><div class="slot" id="suitcase">Suitcase</div><button class="btn" onclick="checkPack()">Close Suitcase</button></div></div></div></section>
+<section class="scene" data-scene="7"><div class="wrap"><div class="card"><div class="content" style="text-align:center"><div class="eyebrow">Mission Complete</div><h1 class="title">Destination Confirmed</h1><p class="subtitle" style="margin:auto">New York City. October 16. Reservation secured.</p><button class="btn" onclick="celebrate();setTimeout(next,900)">Print Final Confirmation</button></div></div></div></section><section class="scene" data-scene="8"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Reservation Synchronization</div><h1 class="title">One More Segment</h1><p class="subtitle">The New York file is valid, but the travel system detected a second reservation linked to Passenger Two.</p><div class="terminal"><div class="flightrow"><span>CONNECTION</span><span>YYZ</span><span>READY</span></div><div class="flightrow"><span>COUNTRY</span><span>CANADA</span><span>VERIFIED</span></div><div class="flightrow"><span>STATUS</span><span>UPGRADE</span><span>AVAILABLE</span></div></div><button class="btn" onclick="next()">Open Connected Reservation</button></div></div></div></section><section class="scene" data-scene="9"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Second Destination Confirmed</div><h1 class="title">Toronto, Canada</h1><p class="subtitle">Apparently New York was only chapter one. A skyline, waterfront evenings, and a luxury stay north of the border are waiting next.</p><div class="grid"><div class="mini"><h3>Stay</h3><p>Fairmont Royal York · Signature room · Downtown Toronto</p></div><div class="mini"><h3>Explore</h3><p>CN Tower, Harbourfront, Yorkville, and a late-night dessert stop.</p></div><div class="mini"><h3>Experience</h3><p>Private Niagara Falls day escape with an evening return to the city.</p></div></div><button class="btn" onclick="next()">View Canada Confirmation</button></div></div></div></section><section class="scene" data-scene="10"><div class="wrap"><div class="card"><div class="content" style="text-align:center"><div class="eyebrow">Final Reservation</div><h1 class="title">New York + Canada</h1><p class="subtitle" style="margin:auto">Two cities. Two countries. One surprise itinerary.</p><div class="ticket" style="margin-top:28px"><div><strong>FROM</strong><br/><span style="font-size:42px;font-family:Georgia,serif">CHI</span></div><div style="font-size:34px">✦</div><div><strong>VIA</strong><br/><span style="font-size:42px;font-family:Georgia,serif">NYC</span></div><div style="font-size:34px">✦</div><div><strong>TO</strong><br/><span style="font-size:42px;font-family:Georgia,serif">YYZ</span></div></div><button class="btn" onclick="next()">Accept Final Itinerary</button></div></div></div></section><section class="scene" data-scene="11"><div class="wrap"><div class="card glitch"><div class="content" style="text-align:center"><div class="eyebrow" style="color:#ff8585">Critical Validation Error</div><h1 class="title">Both Destinations Rejected</h1><p class="subtitle" style="margin:auto">New York was a decoy. Canada was another decoy. The real reservation is still encrypted.</p><div class="terminal"><div class="flightrow"><span>NYC FILE</span><span>DECOY</span><span>REJECTED</span></div><div class="flightrow"><span>CAN FILE</span><span>DECOY</span><span>REJECTED</span></div><div class="flightrow"><span>TRUE ROUTE</span><span>ENCRYPTED</span><span>LOCKED</span></div></div><button class="btn" onclick="next()">Begin Real Recovery</button></div></div></div></section>
 
-  <main>
-    <section class="scene active" data-scene="0">
-      <div class="shell"><div class="panel">
-        <div class="kicker">A private invitation</div>
-        <h1 class="display">Something unforgettable is waiting.</h1>
-        <p class="lead">A small surprise. A little escape. And one destination I think you already know.</p>
-        <div class="actions"><button class="btn" onclick="next()">Open the invitation</button></div>
-      </div></div>
-    </section>
+<section class="scene" data-scene="12"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Recovery Stage 1 of 4</div><h1 class="title">Departure Board Noise</h1><p class="subtitle">The decoy files left behind several airport codes. Watch the board and identify the code that repeats more than the others.</p><div class="terminal" id="board"></div><input class="input" id="airport" placeholder="Enter repeating airport code"/><br/><button class="btn" onclick="check('airport','FCO')">Submit Code</button></div></div></div></section>
+<section class="scene" data-scene="13"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Recovery Stage 2 of 4</div><h1 class="title">The Continent Is Still Hidden</h1><p class="subtitle">The airport code is valid, but the country label was erased. Recover the region before the system will reveal anything else.</p><div class="grid"><div class="mini"><h3>Fragment A</h3><p>Currency packet: EUR</p></div><div class="mini"><h3>Fragment B</h3><p>Time zone packet: CET</p></div><div class="mini"><h3>Fragment C</h3><p>Sea packet: Mediterranean</p></div></div><input class="input" id="continent" placeholder="Which continent?"/><br/><button class="btn" onclick="check('continent','EUROPE')">Recover Region</button></div></div></div></section>
+<section class="scene" data-scene="14"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Recovery Stage 3 of 4</div><h1 class="title">Language Packet</h1><p class="subtitle">The route remains hidden. Decode the recovered phrase before the destination can be named.</p><div class="terminal"><div class="flightrow"><span>PHRASE</span><span>LA DOLCE VITA</span><span>RECOVERED</span></div><div class="flightrow"><span>CODE</span><span>IT</span><span>ACTIVE</span></div><div class="flightrow"><span>AIRPORT</span><span>FCO</span><span>VERIFIED</span></div></div><input class="input" id="countryFinal" placeholder="Enter the country"/><br/><button class="btn" onclick="check('countryFinal','ITALY')">Decrypt Destination</button></div></div></div></section>
+<section class="scene" data-scene="15"><div class="wrap"><div class="card"><div class="content" style="text-align:center"><div class="eyebrow">Destination Recovered</div><h1 class="title">Italy</h1><p class="subtitle" style="margin:auto">Three city archives remain sealed. Unlock each one to reveal the full itinerary.</p><div class="grid"><div class="seal">ROME</div><div class="seal">FLORENCE</div><div class="seal">VENICE</div></div><button class="btn" onclick="next()">Open the first city archive</button></div></div></div></section>
+<section class="scene" data-scene="16"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Rome Puzzle</div><h1 class="title">Ancient Lock</h1><p class="subtitle">A Roman cipher hides the key: DPRO = ?</p><input class="input" id="a3" placeholder="Decode the word"/><br/><button class="btn" onclick="check('a3','AMOR')">Break Seal</button></div></div></div></section>
+<section class="scene" data-scene="17"><div class="wrap"><div class="card"><div class="content"><div class="hero rome"><div><div class="eyebrow">October 17 – October 19</div><h1 class="title">Rome</h1><p class="subtitle">The Eternal City</p></div></div><div class="grid"><div class="mini"><h3>Anantara Palazzo Naiadi Rome Hotel</h3><p>2 nights. A five-star stay overlooking Piazza della Repubblica, near the historic heart of Rome.</p></div><div class="mini"><h3>Arrival</h3><p>Chicago to Rome. United UA970. Arrive in the morning, settle in, and start slow.</p></div><div class="mini"><h3>Hotel Feel</h3><p>Grand architecture, marble details, rooftop views, spa energy, and a luxury Roman welcome.</p></div></div><div class="timeline"><div class="stop"><b>Day 1 — October 16</b><span>Arrive in Rome, hotel check-in, Trevi Fountain, Spanish Steps, Pantheon, rooftop evening walk.</span></div><div class="stop"><b>Day 2 — October 18</b><span>Colosseum, Roman Forum, Palatine Hill, gelato, Piazza Navona, romantic dinner.</span></div><div class="stop"><b>October 19</b><span>Vatican Museums, Sistine Chapel, St. Peter's Basilica, shopping, relaxed final night in Rome.</span></div><div class="stop"><b>October 19</b><span>Check out and continue to Florence.</span></div></div><div class="love">Rome has always felt like one of those places you’re supposed to experience with someone you love. I didn’t want to just tell you where we’re going. I wanted the adventure to start here.</div><button class="btn" onclick="stamp('ROME');next()">Stamp Rome Passport</button></div></div></div></section>
+<section class="scene" data-scene="18"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Florence Puzzle</div><h1 class="title">Renaissance Gallery</h1><p class="subtitle">Who carved David?</p><input class="input" id="a4" placeholder="Artist"/><br/><button class="btn" onclick="check('a4','MICHELANGELO')">Unlock Florence</button></div></div></div></section>
+<section class="scene" data-scene="19"><div class="wrap"><div class="card"><div class="content"><div class="hero florence"><div><div class="eyebrow">October 19 – October 22</div><h1 class="title">Florence</h1><p class="subtitle">Art, sunsets, and Renaissance romance</p></div></div><div class="grid"><div class="mini"><h3>The St. Regis Florence</h3><p>3 nights along the Arno, with old-world elegance and a luxury palace feel.</p></div><div class="mini"><h3>Must See</h3><p>Duomo, Ponte Vecchio, Uffizi Gallery, Piazzale Michelangelo sunset.</p></div><div class="mini"><h3>Vibe</h3><p>Slow mornings, espresso, art, shopping, wine, and the kind of evenings you remember.</p></div></div><div class="timeline"><div class="stop"><b>Day 4 — October 19</b><span>Travel from Rome to Florence, check in, walk along the Arno, relaxed dinner.</span></div><div class="stop"><b>Day 5 — October 20</b><span>Duomo, Uffizi, Ponte Vecchio, gelato, sunset at Piazzale Michelangelo.</span></div><div class="stop"><b>Day 6 — October 21</b><span>Slow luxury day: cafés, shopping, optional Tuscan wine experience, romantic final Florence dinner.</span></div><div class="stop"><b>October 22</b><span>Check out and continue to Venice.</span></div></div><div class="love">Florence feels like the part of the trip where everything slows down. Art, food, sunsets, and us just wandering without rushing.</div><button class="btn" onclick="stamp('FLORENCE');next()">Stamp Florence Passport</button></div></div></div></section>
+<section class="scene" data-scene="20"><div class="wrap"><div class="card"><div class="content"><div class="eyebrow">Venice Puzzle</div><h1 class="title">Canal Cipher</h1><p class="subtitle">A city with no roads needs one classic ride.</p><input class="input" id="a5" placeholder="Answer"/><br/><button class="btn" onclick="check('a5','GONDOLA')">Unlock Venice</button></div></div></div></section>
+<section class="scene" data-scene="21"><div class="wrap"><div class="card"><div class="content"><div class="hero venice"><div><div class="eyebrow">October 22 – October 25</div><h1 class="title">Venice</h1><p class="subtitle">Water, masks, and a final romantic chapter</p></div></div><div class="grid"><div class="mini"><h3>The St. Regis Venice</h3><p>3 nights on the Grand Canal, steps from the heart of Venice, with stunning lagoon energy.</p></div><div class="mini"><h3>Moments</h3><p>Gondola ride, St. Mark's Square, Doge's Palace, Rialto Bridge, waterside dinner.</p></div><div class="mini"><h3>Finale</h3><p>A slower ending: canals, photos, espresso, and one last night before flying home.</p></div></div><div class="timeline"><div class="stop"><b>Day 7 — October 22</b><span>Arrive in Venice, check in at The St. Regis Venice, evening by the Grand Canal.</span></div><div class="stop"><b>Day 8 — October 23</b><span>St. Mark's Basilica, Doge's Palace, Rialto Bridge, gondola ride.</span></div><div class="stop"><b>Day 9 — October 24</b><span>Relaxed Venice day, cafés, photos, hidden streets, final romantic dinner.</span></div><div class="stop"><b>October 25</b><span>Check out and return home with the best memories.</span></div></div><div class="love">I wanted the last city to feel like a movie. No cars, just water, lights, and us taking it all in together.</div><button class="btn" onclick="stamp('VENICE');next()">Stamp Venice Passport</button></div></div></div></section>
+<section class="scene" data-scene="22"><div class="wrap"><div class="card"><div class="content" style="text-align:center"><div class="eyebrow">Final Itinerary</div><h1 class="title">October 16 – 25</h1><div class="passport"><h2>Passport</h2><div class="bigstamp">ROME</div><div class="bigstamp">FLORENCE</div><div class="bigstamp">VENICE</div></div><div class="grid"><div class="mini"><h3>Rome</h3><p>Oct 17–19<br/>Anantara Palazzo Naiadi Rome Hotel</p></div><div class="mini"><h3>Florence</h3><p>Oct 19–22<br/>The St. Regis Florence</p></div><div class="mini"><h3>Venice</h3><p>Oct 22–25<br/>The St. Regis Venice</p></div></div><button class="btn" onclick="next()">Open Final Letter</button></div></div></div></section>
+<section class="scene" data-scene="23"><div class="wrap"><div class="card"><div class="content" style="text-align:center"><div class="eyebrow">For You</div><h1 class="title">We’re Going to Italy</h1><div class="love" style="text-align:left;max-width:850px;margin:25px auto">Every trip tells a story. I wanted ours to begin before we ever packed a suitcase.<br/><br/>I planned this because you deserve something beautiful, romantic, and unforgettable. I can’t wait to walk through Rome with you, watch Florence slow us down, and end the trip together in Venice.<br/><br/>Thank you for being my favorite adventure. I love you.</div><button class="btn" onclick="next();celebrate()">Start the countdown</button></div></div></div></section><section class="scene" data-scene="24"><div class="wrap"><div class="card"><div class="content" style="text-align:center"><div class="eyebrow">Until Departure</div><h1 class="title">The adventure begins soon.</h1><div class="grid" style="max-width:850px;margin:34px auto"><div class="mini"><h3 id="days">0</h3><p>Days</p></div><div class="mini"><h3 id="hours">0</h3><p>Hours</p></div><div class="mini"><h3 id="minutes">0</h3><p>Minutes</p></div><div class="mini"><h3 id="seconds">0</h3><p>Seconds</p></div></div><p class="subtitle" style="margin:auto">United UA970 departs Chicago on October 16, 2026 at 3:50 PM.</p><button class="btn" onclick="celebrate()">Celebrate Again</button><button class="btn secondary" onclick="go(0)">Replay</button></div></div></div></section>
+</main>
+<script>
+let scene=0, stamps=[], broad=0, packed=0; const total=20; const $=id=>document.getElementById(id);
+function save(){localStorage.setItem('tripSceneCanadaV3',scene);localStorage.setItem('tripStampsCanadaV3',JSON.stringify(stamps))}
+function load(){let s=localStorage.getItem('tripSceneCanadaV3');let st=localStorage.getItem('tripStampsCanadaV3'); if(st)stamps=JSON.parse(st); if(s){go(+s,false)} renderStamps()}
+function go(n,sv=true){document.querySelectorAll('.scene').forEach(x=>x.classList.remove('active'));scene=n;document.querySelector(`[data-scene="${n}"]`).classList.add('active');$('progress').style.width=(n/total*100)+'%';window.scrollTo(0,0); if(sv)save(); if(n===12)startBoard(); if(n===24)startCountdown()}
+function next(){go(Math.min(scene+1,total))}
+function norm(v){return (v||'').toUpperCase().replace(/[^A-Z0-9]/g,'')}
+function check(id,ans){if(norm($(id).value)===ans){next()}else{document.body.classList.add('shake');setTimeout(()=>document.body.classList.remove('shake'),450)}}
+function wrong(el){el.style.borderColor='var(--red)';el.style.color='#ffb5b5';setTimeout(()=>{el.style.borderColor='';el.style.color=''},700)}
+function stamp(s){if(!stamps.includes(s)){stamps.push(s);renderStamps();save()}}
+function renderStamps(){$('stamps').innerHTML=stamps.map(s=>`<span class="stamp">${s}</span>`).join('')}
+let holdTimer; $('holdSafe').addEventListener('mousedown',()=>{holdTimer=setTimeout(()=>{$('authBtn').classList.remove('hidden');$('holdSafe').textContent='✓'},900)}); $('holdSafe').addEventListener('mouseup',()=>clearTimeout(holdTimer)); $('holdSafe').addEventListener('touchstart',()=>{holdTimer=setTimeout(()=>{$('authBtn').classList.remove('hidden');$('holdSafe').textContent='✓'},900)});
+function selectBroad(el){if(el.classList.contains('selected'))return; el.classList.add('selected');broad++}
+function checkBroad(){if(broad>=3){stamp('BROADWAY');next()}else document.body.classList.add('shake'),setTimeout(()=>document.body.classList.remove('shake'),450)}
+function pack(el){$('suitcase').appendChild(el);packed++}
+function checkPack(){if(packed>=5){stamp('LUGGAGE');next()}else wrong($('suitcase'))}
+function startBoard(){const codes=['JFK','LAX','MAD','CDG','AMS','FCO','LHR','ZRH','BCN','JFK','FCO']; let html=''; for(let i=0;i<7;i++){let c=codes[(i+Math.floor(Date.now()/700))%codes.length]; html+=`<div class="flightrow"><span>UA ${120+i*7}</span><span class="${c==='FCO'?'flash':''}">${c}</span><span>ON TIME</span></div>`}$('board').innerHTML=html; if(scene===12)setTimeout(startBoard,650)}
+function celebrate(){for(let i=0;i<80;i++){let p=document.createElement('div');p.className='piece';p.style.left=Math.random()*100+'%';p.style.top='-20px';p.style.animationDelay=Math.random()*1+'s';p.style.background=['#d9b76a','#f6efe2','#7de3ad'][i%3];$('confetti').appendChild(p);setTimeout(()=>p.remove(),4000)}}
+load();
 
-    <section class="scene" data-scene="1">
-      <div class="shell"><div class="panel center">
-        <div class="kicker">Identity verification</div>
-        <h1 class="display">For Passenger Two Only</h1>
-        <p class="lead centered">Press and hold the wax seal to confirm you are ready.</p>
-        <div class="seal" id="seal">Hold</div>
-        <button class="btn hidden" id="sealBtn" onclick="next()">Access granted</button>
-      </div></div>
-    </section>
-
-    <section class="scene reveal newyork" data-scene="2">
-      <div class="shell"><div class="panel dark-panel">
-        <div class="kicker">Destination confirmed</div>
-        <h1 class="display">New York City</h1>
-        <p class="lead">A romantic city escape filled with skyline views, late-night lights, shopping, and dinner in Manhattan.</p>
-        <div class="actions"><button class="btn" onclick="next()">View our weekend</button></div>
-      </div></div>
-    </section>
-
-    <section class="scene" data-scene="3">
-      <div class="shell"><div class="panel">
-        <div class="kicker">Your New York itinerary</div>
-        <h1 class="display compact">A weekend in Manhattan</h1>
-        <div class="ny-grid">
-          <article class="ny-card"><span>01</span><h3>Check in</h3><p>A stylish Manhattan hotel near the lights of Midtown.</p></article>
-          <article class="ny-card"><span>02</span><h3>Dinner</h3><p>A romantic evening reservation followed by a walk through the city.</p></article>
-          <article class="ny-card"><span>03</span><h3>Explore</h3><p>Fifth Avenue, Central Park, skyline views, and dessert after dark.</p></article>
-        </div>
-        <div class="fake-ticket">
-          <div><small>FROM</small><strong>CHI</strong></div>
-          <div class="ticket-line">✦</div>
-          <div><small>TO</small><strong>NYC</strong></div>
-          <div class="ticket-status">READY</div>
-        </div>
-        <div class="actions"><button class="btn" onclick="go(4)">See the final reservation</button></div>
-      </div></div>
-    </section>
-
-    <section class="scene glitch-scene" data-scene="4">
-      <div class="shell"><div class="panel center error-panel">
-        <div class="kicker red">Reservation interrupted</div>
-        <h1 class="display glitch" data-text="NEW YORK">NEW YORK</h1>
-        <div class="strike">DESTINATION INVALID</div>
-        <p class="lead centered">That itinerary was convincing… but it was never the real surprise.</p>
-        <div class="terminal" id="terminalText">
-          <div>&gt; checking reservation...</div>
-          <div>&gt; mismatch detected</div>
-          <div>&gt; opening encrypted itinerary</div>
-          <div class="success">&gt; real destination unlocked</div>
-        </div>
-        <div class="actions"><button class="btn" onclick="next()">Begin the real mystery</button></div>
-      </div></div>
-    </section>
-
-    <section class="scene" data-scene="5">
-      <div class="shell"><div class="panel">
-        <div class="kicker">Clue file 01</div>
-        <h1 class="display">Three hints. One country.</h1>
-        <div class="grid">
-          <div class="clue" onclick="openClue(this)"><div class="num">I</div><h3>Ancient</h3><p class="hidden">An empire once measured the world from here.</p></div>
-          <div class="clue" onclick="openClue(this)"><div class="num">II</div><h3>Beautiful</h3><p class="hidden">Art is not simply displayed here. It is built into the streets.</p></div>
-          <div class="clue" onclick="openClue(this)"><div class="num">III</div><h3>Romantic</h3><p class="hidden">Some cities are crossed by roads. One is crossed by water.</p></div>
-        </div>
-        <div class="actions"><button class="btn" onclick="next()">Continue</button></div>
-      </div></div>
-    </section>
-
-    <section class="scene" data-scene="6">
-      <div class="shell"><div class="panel center">
-        <div class="kicker">Clue file 02</div>
-        <h1 class="display">Decode the country</h1>
-        <p class="lead centered">Its boot-shaped outline touches the Mediterranean, and its language turns dinner into music.</p>
-        <input class="answer" id="country" placeholder="Type your guess" autocomplete="off" />
-        <p class="answer-message" id="answerMessage"></p>
-        <div class="actions"><button class="btn" onclick="checkCountry()">Unlock</button></div>
-      </div></div>
-    </section>
-
-    <section class="scene" data-scene="7">
-      <div class="shell"><div class="panel center">
-        <div class="kicker">Route acquired</div>
-        <h1 class="display">Three chapters</h1>
-        <p class="lead centered">History. Renaissance. Water. The path is ready.</p>
-        <div class="route"><svg aria-label="stylized travel route" viewBox="0 0 800 260"><path d="M70,190 C210,60 270,230 410,115 S630,60 735,165"></path><circle cx="70" cy="190" r="7"></circle><circle cx="410" cy="115" r="7"></circle><circle cx="735" cy="165" r="7"></circle></svg></div>
-        <button class="btn" onclick="next()">Reveal the destination</button>
-      </div></div>
-    </section>
-
-    <section class="scene reveal italy" data-scene="8">
-      <div class="shell"><div class="panel dark-panel">
-        <div class="kicker">Real destination unlocked</div>
-        <h1 class="display">Italy</h1>
-        <p class="lead">Rome. Florence. Venice. A luxury journey built around history, art, food, and us.</p>
-        <div class="actions"><button class="btn" onclick="next()">See the cities</button></div>
-      </div></div>
-    </section>
-
-    <section class="scene" data-scene="9">
-      <div class="shell"><div class="panel">
-        <div class="kicker">The journey</div>
-        <h1 class="display compact">Three cities. Eight nights.</h1>
-        <div class="citycards">
-          <article class="city rome"><div><div class="kicker">Chapter one</div><h3>Rome</h3><p>Anantara Palazzo Naiadi Rome · 2 nights</p></div></article>
-          <article class="city florence"><div><div class="kicker">Chapter two</div><h3>Florence</h3><p>The St. Regis Florence · 3 nights</p></div></article>
-          <article class="city venice"><div><div class="kicker">Chapter three</div><h3>Venice</h3><p>The St. Regis Venice · 3 nights</p></div></article>
-        </div>
-        <div class="actions"><button class="btn" onclick="next()">Open the real itinerary</button></div>
-      </div></div>
-    </section>
-
-    <section class="scene" data-scene="10">
-      <div class="shell"><div class="panel">
-        <div class="kicker">The real itinerary</div>
-        <h1 class="display compact">October 16–25, 2026</h1>
-        <div class="flight">
-          <div><div class="kicker">Outbound</div><div class="airport">ORD</div><p>United UA970<br />Oct 16 · 3:50 PM</p></div>
-          <div class="arrow">→</div>
-          <div class="right"><div class="kicker">Arrival</div><div class="airport">FCO</div><p>Oct 17 · 7:55 AM</p></div>
-        </div>
-        <div class="itinerary">
-          <div class="day"><strong>Oct 17–19</strong><span>Rome · Private airport transfer · Anantara Palazzo Naiadi Rome</span></div>
-          <div class="day"><strong>Oct 19</strong><span>Premium-class rail from Rome Termini to Florence Santa Maria Novella</span></div>
-          <div class="day"><strong>Oct 19–22</strong><span>Florence · The St. Regis Florence</span></div>
-          <div class="day"><strong>Oct 22</strong><span>Premium-class rail from Florence to Venice Santa Lucia</span></div>
-          <div class="day"><strong>Oct 22–25</strong><span>Venice · The St. Regis Venice · Private airport transfer</span></div>
-          <div class="day"><strong>Oct 25</strong><span>VCE → YUL → ORD · UA8161 and UA8687</span></div>
-        </div>
-        <div class="actions"><button class="btn" onclick="next()">One last thing</button></div>
-      </div></div>
-    </section>
-
-    <section class="scene" data-scene="11">
-      <div class="shell"><div class="panel center">
-        <div class="kicker">For you</div>
-        <h1 class="display">We’re going to Italy.</h1>
-        <div class="letter">I wanted the surprise to begin before we ever packed a suitcase. I planned this because you deserve something beautiful, romantic, and unforgettable.<br /><br />I cannot wait to walk through Rome with you, slow down together in Florence, and finish the story beside the canals of Venice.<br /><br />Thank you for being my favorite adventure. I love you.</div>
-        <button class="btn" onclick="next();celebrate()">Start the countdown</button>
-      </div></div>
-    </section>
-
-    <section class="scene" data-scene="12">
-      <div class="shell"><div class="panel center">
-        <div class="kicker">Until departure</div>
-        <h1 class="display compact">The adventure begins soon.</h1>
-        <div class="countdown">
-          <div class="unit"><b id="days">0</b><span>Days</span></div>
-          <div class="unit"><b id="hours">0</b><span>Hours</span></div>
-          <div class="unit"><b id="minutes">0</b><span>Minutes</span></div>
-          <div class="unit"><b id="seconds">0</b><span>Seconds</span></div>
-        </div>
-        <p class="lead centered top-gap">United UA970 departs Chicago on October 16, 2026 at 3:50 PM.</p>
-        <div class="actions"><button class="btn" onclick="celebrate()">Celebrate again</button><button class="btn ghost" onclick="go(0)">Replay</button></div>
-      </div></div>
-    </section>
-  </main>
-
-  <script src="script.js?v=4"></script>
-</body>
-</html>
+function startCountdown(){
+ const target=new Date('2026-10-16T15:50:00-05:00').getTime();
+ function tick(){const d=target-Date.now(); if(d<=0){['days','hours','minutes','seconds'].forEach(id=>{if($(id))$(id).textContent='0'});return;}
+ const days=Math.floor(d/86400000),hours=Math.floor(d%86400000/3600000),minutes=Math.floor(d%3600000/60000),seconds=Math.floor(d%60000/1000);
+ if($('days'))$('days').textContent=days;if($('hours'))$('hours').textContent=hours;if($('minutes'))$('minutes').textContent=minutes;if($('seconds'))$('seconds').textContent=seconds;setTimeout(tick,1000)} tick();}
+</script>
+</body></html>
